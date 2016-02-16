@@ -100,7 +100,11 @@ body {
             url: uri,
             success: function(data) {
 		$("#risultato").html(data);
-		alert("Dati Inviati Correttamente")
+		if (data =='OK') {
+			alert("Dati Inviati Correttamente");
+		} else {
+			alert("Nessun nuovo dato");
+		}
             },
             error: function(jqXHR, textStatus, errorThrown) {
 		alert('errore');
