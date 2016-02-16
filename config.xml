@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "InvioDatiSerata"
+        id          = "SarabandaStaff"
         version     = "1.0.0" >
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
@@ -19,7 +19,7 @@
     <allow-intent href="*" />
     <allow-navigation href="*" />
 
-    <name>InvioDatiSerata</name>
+    <name>SarabandaStaff</name>
     <icon src="icon.png" gap:platform="ios" width="57" height="57" />
 
 
@@ -32,7 +32,8 @@
 
     <plugin name="org.apache.cordova.camera" spec="0.3.6" source="pgb" />
     <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
-    
+    <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" source="pgb" />
+
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="org.apache.cordova.vibration"  />
 	<gap:plugin name="nl.x-services.plugins.insomnia"/>
