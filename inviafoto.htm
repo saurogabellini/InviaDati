@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Chi Vuol Esser Sarabanda</title> 
+
+<meta name="description" content="">
+<meta name="keyword" content="">     
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<!-- Javascripts -->
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="assets/css/jquery.mobile-1.4.4.min.css" />
+<script src="assets/js/jquery.mobile-1.4.4.min.js"></script>
+
+<script src="phonegap.js"></script>
+
+<!-- / Javascripts -->
+ <style>
+      body {
+-webkit-touch-callout:none;
+-webkit-user-select:none;
+-khtml-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;	
+}
+
+.ui-page { background: #000000;}
+
+	  .message
+      {
+        padding: 5px 5px 5px 5px;
+		color: yellow;
+      }
+      .username
+      {
+        font-weight: strong;
+        color: #0f0;
+      }
+      .msgContainerDiv
+      {
+        overflow-y: scroll;
+        height: 250px;
+      }
+	 
+	  
+    </style>
+
+
+<script  type="text/javascript">
+    $(document).ready(function() {          
+			 
+    });
+	
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+
+
+    function takephoto()
+    {
+
+    	try{
+
+			navigator.camera.getPicture(onCaptureSuccess, onCaptureFail,  { quality: 30,destinationType: Camera.DestinationType.DATA_URL, targetWidth: 320,targetHeight: 200,});
+
+			}
+
+			catch(ex)
+
+			{
+
+			alert(ex);
+
+			}
+    }
+    function onCaptureSuccess(imageURI)
+
+	{
+
+	 alert('foto ok');
+		try
+		{
+
+			$.ajax({
+
+			type: 'POST',
+
+			url: 'http://10.0.0.1/upload.aspx',
+
+			data: { image: imageURI}
+
+			}).done(function( msg ) {
+
+				alert('Foto caricata');
+
+			}).fail(function(a,b){
+
+			alert('Failed to save:' + b);
+
+			});
+
+		}
+		catch(ex)
+		{	
+			alert(ex);
+		}
+	}
+
+	function onCaptureFail()
+
+	{
+
+	alert('Failed to capture!');
+
+	}
+</script>
+
+</head>
+<body bgcolor="#000000">
+<div data-role="page" id="chatPage" data-theme="a" data-url="chatPage">
+<a href="index.html" rel="external"><img src="assets/images/icons/arrow.jpg"></a><br/>
+ <br />
+ <br />
+ <br />
+ <br />
+<center>
+<button data-theme="a" data-icon="camera"  data-iconpos="top"  onclick="takephoto();" id="takePhoto" name="takePhoto" style="height:83px; width:105px;">Selfie</button>
+</center>               
+</div>
+ 
+  
+</body>
+</html>
