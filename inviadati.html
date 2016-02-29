@@ -99,14 +99,14 @@ body {
             url: uri,
 	    type: 'POST',
  	    data: { tipo: appoggio},	
-            success: function(data) {
-            
+            success: function(data) {            
 		    $("#risultato").html(data);
-		if (data =='OK') {
-			alert("Dati Inviati Correttamente");
-		} else {
-			alert("Nessun nuovo dato");
-		}
+			if (data =='OK') {
+				localStorage.setItem("datiinput","");  
+				alert("Dati Inviati Correttamente");
+			} else {
+				alert("Nessun nuovo dato");
+			}
             },
             error: function(jqXHR, textStatus, errorThrown) {
 		alert('errore');
