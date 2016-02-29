@@ -71,14 +71,17 @@ body {
             dataType: "text",
             url: uri,
             success: function(data) {
-		$("#risultato").html(data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
-		appoggio=data;
+		        localStorage.setItem("datiinput",data);  
+		        appoggio=data;
+		        $("#risultato").html(data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+		        
             },
             error: function(jqXHR, textStatus, errorThrown) {
 		alert('errore');
             }
         });
     }
+
 
     function InviaDati() {
 
@@ -87,15 +90,18 @@ body {
 		return;
 	}
 
-        var uri = 'http://www.chivuolessersarabanda.com/DatiSerata.ashx?Tipo=' + unescape(appoggio);
+        var uri = 'http://www.chivuolessersarabanda.com/DatiSerata.ashx';
 
 
         $.ajax({
             cache: false,
             dataType: "text",
             url: uri,
+	    type: 'POST',
+ 	    data: { tipo: appoggio},	
             success: function(data) {
-		$("#risultato").html(data);
+            
+		    $("#risultato").html(data);
 		if (data =='OK') {
 			alert("Dati Inviati Correttamente");
 		} else {
@@ -108,9 +114,10 @@ body {
         });
     }
 
+
     $(document).ready(function() {          
-		
-			 
+		appoggio  = localStorage.getItem("datiinput");	
+		$("#risultato").html(appoggio.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
     });
 	
 </script>
