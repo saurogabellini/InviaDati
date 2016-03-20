@@ -68,7 +68,7 @@ body {
 
     	try{
 
-			  navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL,    sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
+			  navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI,    sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
 
 			}
 
