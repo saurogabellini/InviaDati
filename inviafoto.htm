@@ -62,13 +62,31 @@ body {
     document.addEventListener("deviceready", onDeviceReady, false);
 
 
+    function getgallery()
+    {
+    	try{
+
+			  navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL,    sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
+
+			}
+
+			catch(ex)
+
+			{
+
+			alert(ex);
+
+			}
+    	
+    }
+
 
     function takephoto()
     {
 
     	try{
 
-			  navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL,    sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
+			  navigator.camera.getPicture(onCaptureSuccess, onCaptureFail,  { quality: 90,destinationType: Camera.DestinationType.DATA_URL, targetWidth: 800,targetHeight: 600,});
 
 			}
 
@@ -130,8 +148,11 @@ body {
  <br />
  <br />
  <br />
+<center>	
+<button data-theme="a" data-icon="camera"  data-iconpos="top"  onclick="takephoto();" id="takePhoto" name="takePhoto" style="height:83px; width:105px;">Camera</button>
+</center>               
 <center>
-<button data-theme="a" data-icon="camera"  data-iconpos="top"  onclick="takephoto();" id="takePhoto" name="takePhoto" style="height:83px; width:105px;">Selfie</button>
+<button data-theme="a" data-icon="camera"  data-iconpos="top"  onclick="getgallery();" id="takePhoto" name="takePhoto" style="height:83px; width:105px;">Gallery</button>
 </center>               
 </div>
  
