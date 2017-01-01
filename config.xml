@@ -8,7 +8,7 @@
         <string>300</string>
     </gap:config-file>
 
-    <preference name="phonegap-version" value="3.7.0" />
+    <preference name="phonegap-version"/>
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
     <gap:platform name="winphone" />
@@ -30,14 +30,14 @@
         Sauro Gabellini
     </author>
 
-    <plugin name="org.apache.cordova.camera" spec="0.3.6" source="pgb" />
-    <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
-    <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" source="pgb" />
+    <plugin name="org.apache.cordova.camera" spec="0.3.6" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" />
+    <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" />
 
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="org.apache.cordova.vibration"  />
 	<gap:plugin name="nl.x-services.plugins.insomnia"/>
-    <gap:plugin name="org.apache.cordova.file-transfer" spec="0.4.6" source="pgb" />
+    <gap:plugin name="org.apache.cordova.file-transfer" spec="0.4.6"  />
     
 	<access origin="*" />
 </widget>
